@@ -74,6 +74,11 @@ post '/refresh' do
     }
 
     response = http.request(request)
+    
+    puts "\n********Code:******\n"
+    puts response.code.to_i
+    puts "\n********Body:******\n"
+    puts response.body
 
     status response.code.to_i
     return response.body
