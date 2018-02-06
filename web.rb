@@ -49,11 +49,6 @@ post '/swap' do
         token_data["refresh_token"] = encrypted_token
         response.body = JSON.dump(token_data)
     end
-
-    puts "\n********Code:******\n"
-    puts response.code.to_i
-    puts "\n********Body:******\n"
-    puts response.body
     
     status response.code.to_i
     return response.body
@@ -62,6 +57,7 @@ end
 post '/refresh' do
 
     # Request a new access token using the POST:ed refresh token
+    puts "\n\nRequesting the stuff:\n\n"
 
     http = Net::HTTP.new(SPOTIFY_ACCOUNTS_ENDPOINT.host, SPOTIFY_ACCOUNTS_ENDPOINT.port)
     http.use_ssl = true
