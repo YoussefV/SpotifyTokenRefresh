@@ -4,6 +4,7 @@ require 'net/https'
 require 'base64'
 require 'encrypted_strings'
 require 'json'
+require 'newrelic_rpm'
 
 CLIENT_ID = ENV['CLIENT_ID']
 CLIENT_SECRET = ENV['CLIENT_SECRET']
