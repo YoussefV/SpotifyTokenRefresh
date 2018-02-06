@@ -13,8 +13,11 @@ CLIENT_CALLBACK_URL = ENV['CLIENT_CALLBACK_URL']
 AUTH_HEADER = "Basic " + Base64.strict_encode64(CLIENT_ID + ":" + CLIENT_SECRET)
 SPOTIFY_ACCOUNTS_ENDPOINT = URI.parse("https://accounts.spotify.com")
 
+$global_variable = ""
+
 get '/' do
-"Working"    
+"Working" 
+$global_variable
 end
 
 post '/swap' do
@@ -80,6 +83,8 @@ post '/refresh' do
     puts response.code.to_i
     puts "\n********Body:******\n"
     puts response.body
+    
+    $global_variable = response.body
 
     status response.code.to_i
     return response.body
