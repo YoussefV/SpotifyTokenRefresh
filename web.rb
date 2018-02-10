@@ -56,9 +56,6 @@ end
 
 post '/refresh' do
 
-    # Request a new access token using the POST:ed refresh token
-    logger.info "\n\nRequesting the stuff:\n\n"
-
     http = Net::HTTP.new(SPOTIFY_ACCOUNTS_ENDPOINT.host, SPOTIFY_ACCOUNTS_ENDPOINT.port)
     http.use_ssl = true
 
@@ -76,10 +73,10 @@ post '/refresh' do
 
     response = http.request(request)
     
-    logger.info "\n********Code:******\n"
-    logger.info response.code.to_i
-    logger.info "\n********Body:******\n"
-    logger.info response.body
+    # logger.info "\n********Code:******\n"
+    # logger.info response.code.to_i
+    # logger.info "\n********Body:******\n"
+    # logger.info response.body
 
     status response.code.to_i
     return response.body
